@@ -16,7 +16,6 @@ describe 'A water reservoir' do
     it 'is no longer empty when we fill it' do
         reservoir = WaterReservoir.new
         reservoir.fill
-        puts reservoir.current_water_volume
         expect(reservoir).to_not be_empty
     end
 
