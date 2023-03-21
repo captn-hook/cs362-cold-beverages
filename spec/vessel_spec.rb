@@ -22,11 +22,7 @@ describe 'A vessel for holding liquid' do
   context 'with an item' do
      
     before do
-      #fake item with volume 100 and volume method, named fake
       @item = Item.new('FAKE', 100)
-      # @item = {name: 'FAKE', volume: 100}
-      # allow(@item).to receive(:volume).and_return(100)
-      # allow(@item).to receive(:class).and_return(Item)
     end
 
     it 'basically' do

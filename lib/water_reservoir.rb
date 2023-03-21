@@ -9,15 +9,18 @@ class WaterReservoir
   end
 
   def empty?
-    current_water_volume == 0
+    @current_water_volume == 0
   end
 
-  def fill
-    current_water_volume = capacity
+  def fill(volume = capacity)
+    @current_water_volume = volume
   end
 
-  def drain(volume)
-    self.current_water_volume -= volume
+  def drain(volume = capacity)
+    if volume > @current_water_volume
+      @current_water_volume = 0
+    else
+      @current_water_volume -= volume
+    end
   end
-
 end

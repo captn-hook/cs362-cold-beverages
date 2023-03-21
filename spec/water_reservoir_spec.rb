@@ -2,4 +2,29 @@ require_relative '../lib/water_reservoir'
 
 describe 'A water reservoir' do
 
+    it 'has a capacity and volume' do
+        reservoir = WaterReservoir.new
+        expect(reservoir.capacity).to eq(10)
+        expect(reservoir.current_water_volume).to eq(0)
+    end
+
+    it 'is initially empty' do
+        reservoir = WaterReservoir.new
+        expect(reservoir).to be_empty
+    end
+
+    it 'is no longer empty when we fill it' do
+        reservoir = WaterReservoir.new
+        reservoir.fill
+        puts reservoir.current_water_volume
+        expect(reservoir).to_not be_empty
+    end
+
+    it 'can be drained' do
+        reservoir = WaterReservoir.new
+        reservoir.fill
+        reservoir.drain(5)
+        expect(reservoir.current_water_volume).to eq(5)
+    end
+
 end
