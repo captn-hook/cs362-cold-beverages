@@ -24,10 +24,9 @@ class Vessel
   end
 
   def _recieve(item)
-    puts item
     if @item != nil and item.name != @item.name
       raise "Item is not the same as the item in the vessel"
-    elsif ite.volume > @volume
+    elsif item.volume > @volume
       raise "Item is too big for vessel"
     else
       @item = item
@@ -37,17 +36,12 @@ class Vessel
 
   def fill(input = @volume)
     #can recieve am item or a volume
-    puts what
-    puts volume
     if input.class == Item
-      volume = _recieve(volume)      
+      volume = _recieve(input)      
     else
       volume = input
     end
 
-    puts volume
-    puts "he he"
-    puts @volume
     if volume >= @volume
       @fullness = @volume
     else
@@ -58,6 +52,10 @@ class Vessel
 
   def empty?
     @fullness == 0
+  end
+
+  def item
+    @item
   end
 
 end
