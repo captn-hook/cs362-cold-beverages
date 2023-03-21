@@ -19,6 +19,14 @@ class Chiller
     @power = :off
   end
 
+  def power
+    @power
+  end
+
+  def contents
+    @contents
+  end
+
   def add(item)
     @contents << item
   end
