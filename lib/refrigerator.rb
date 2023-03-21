@@ -2,12 +2,12 @@ class Refrigerator
 
   attr_reader :chiller, :freezer, :control_panel, :water_dispenser, :water_reservoir
 
-  def initialize(chiller, freezer, water_dispenser, water_reservoir)
+  def initialize(chiller, freezer, water_dispenser)
     @chiller = chiller
     @freezer = freezer
     @control_panel = control_panel
     @water_dispenser = water_dispenser
-    @water_reservoir = water_reservoir
+    @water_reservoir = @water_dispenser.reservoir
     @power = :off
   end
 
@@ -17,6 +17,14 @@ class Refrigerator
 
   def freeze(item)
     freezer.add(item)
+  end
+
+  def fill(volume)
+    water_reservoir.fill(volume)
+  end
+
+  def dispense(vessel)
+    water_dispenser.dispense(vessel)
   end
 
   def total_capacity
@@ -37,6 +45,10 @@ class Refrigerator
     @power = :off
     chiller.turn_off
     freezer.turn_off
+  end
+
+  def power
+    @power
   end
 
   def set_chiller_level(level)
