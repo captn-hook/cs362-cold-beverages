@@ -11,7 +11,7 @@ describe 'An item of food or a beverage' do
     it 'has a default name and volume' do
         item = Item.new
         expect(item.name).to eq('Mystery Treat')
-        expect(item.volume).to eq(1)
+        expect(item.volume).to eq(100)
         expect(item.age).to eq(0)
         expect(item.spoil).to eq(false)
     end

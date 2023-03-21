@@ -1,7 +1,7 @@
 class Vessel
   attr_reader :volume
 
-  def initialize(name, volume, item = nil)
+  def initialize(name = 'Mystey Container', volume = 100, item = nil)
     @name = name
     @volume = volume
     
@@ -23,17 +23,31 @@ class Vessel
     @volume
   end
 
-  def fill(volume = @volume)
-    #can recieve am item or a volume
-    if volume.class == Item
-      if @item != nil and volume.name != @item.name
-        raise "Item is not the same as the item in the vessel"
-      elsif volume.volume > @volume
-        raise "Item is too big for vessel"
-      else
-        @item = volume
-        volume = volume.volume
+  def _recieve(item)
+    puts item
+    if @item != nil and item.name != @item.name
+      raise "Item is not the same as the item in the vessel"
+    elsif ite.volume > @volume
+      raise "Item is too big for vessel"
+    else
+      @item = item
+      item.volume
+    end
+  end
 
+  def fill(input = @volume)
+    #can recieve am item or a volume
+    puts what
+    puts volume
+    if input.class == Item
+      volume = _recieve(volume)      
+    else
+      volume = input
+    end
+
+    puts volume
+    puts "he he"
+    puts @volume
     if volume >= @volume
       @fullness = @volume
     else

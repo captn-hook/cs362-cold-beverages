@@ -1,7 +1,7 @@
 class Item
   attr_reader :name, :volume
 
-  def initialize(name = "Mystery Treat", volume = 1, age = 0, spoil = false)
+  def initialize(name = "Mystery Treat", volume = 100, age = 0, spoil = false)
     @name = name
     @volume = volume
     @age = age
